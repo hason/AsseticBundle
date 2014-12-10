@@ -98,7 +98,7 @@ class AsseticController
 
     protected function cachifyAsset(AssetInterface $asset)
     {
-        return new AssetCache($asset, $this->cache);
+        return new AssetCache(new ChildrenModifiedAsset($asset, $this->am), $this->cache);
     }
 
     protected function configureAssetValues(AssetInterface $asset)
